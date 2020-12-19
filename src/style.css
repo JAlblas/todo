@@ -1,3 +1,28 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    height: 100%;
+    background-color: rgb(33, 111, 212);
+    padding: 25px;
+}
+
 h1 {
-    color: red;
+    color: white;
+    margin: 0;
+}
+
+.card {
+    width: 250px;
+    height:250px;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 20px 20px 20px 0px;
+    padding: 10px;
+    
 }
