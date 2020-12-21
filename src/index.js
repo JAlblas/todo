@@ -1,5 +1,5 @@
 import { Todo } from './todo';
-import { createUser, Person, Module } from './project';
+import { createProject, ProjectManager } from './project';
 import './style.css';
 
 let todo1 = new Todo("clean the house", "clean everything in the house", "31/12/2020", "HIGH", "", []);
@@ -10,21 +10,24 @@ todo2.sayHello();
 
 let todos = [todo1, todo2];
 
-let factory = createUser("jasper", "test");
-factory.setUserName("jasper 2", "mg");
+let project1 = createProject("Project 1", 1);
+let project2 = createProject("Project 1", 2);
 
-let person = new Person("name", 15);
-person.sayHello();
 
-Module.printLine();
+let projects = [project1, project2];
+
 
 let container = document.querySelector("#container");
 
-for (const todo of todos) {
-    let cardDiv = document.createElement('div');
-    cardDiv.classList.add('card');
-    cardDiv.textContent = todo.title;
-    container.append(cardDiv)
+for (const project of projects) {
+    let projectDiv = document.createElement('div');
+    
+    projectDiv.classList.add('card');
+    projectDiv.textContent = project.title;
+    projectDiv.id = project.id;
+
+    projectDiv.addEventListener("click", ProjectManager.selectProject);
+    container.append(projectDiv)
 }
   
 

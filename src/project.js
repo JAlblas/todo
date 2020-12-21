@@ -1,27 +1,29 @@
-// Factory
-const createUser = ({ userName, avatar }) => ({
-  userName,
-  avatar,
-  setUserName (userName, avatar) {
-    this.userName = userName;
-    this.avatar = avatar;
-    console.log(this);
-  }
-});
+import { DOMManager } from './dom';
 
-// Constructor
-const Person = function(name, age) {
-  this.sayHello = () => console.log(this);
-  this.name = name;
-  this.age = age;
+// Factory
+const createProject = ( title, id ) => {
+  return { title, id };
 };
 
 // Module pattern
-const Module = (() => {
+const ProjectManager = (() => {
+  let selectedProject = "";
+
+  const selectProject = (e) => {
+    console.log("Selected project!"); 
+    selectedProject = e.target.id;
+
+    DOMManager.showTodos();
+  }
+
+  const loadTodos = () => {
+
+  }
+
   const printLine = () => {
     console.log(("HAHAHA"));
   }
-  return { printLine };
+  return { selectProject, printLine };
 })()
 
-export { createUser, Person, Module };
+export { createProject, ProjectManager };
