@@ -2,17 +2,25 @@ body {
     font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
-}
-
-#container {
-    height: 100%;
     background-color: rgb(33, 111, 212);
-    padding: 25px;
 }
 
 h1 {
     color: white;
     margin: 0;
+}
+
+header {
+    padding-left: 25px;
+}
+
+.back-button {
+    margin-top: 25px;
+}
+
+#container {
+    height: 100%;
+    padding: 25px;
 }
 
 .card {
@@ -24,9 +32,35 @@ h1 {
     border-radius: 5px;
     margin: 20px 20px 20px 0px;
     padding: 10px;
-    
+    position: relative;
+}
+
+.delete {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+    background-image: url('delete.png') center center no-repeat;
 }
 
 .card:hover {
     cursor: pointer;
 }
+
+.project {
+    width: 250px;
+    height:250px;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin: 20px 20px 20px 0px;
+    padding: 10px;
+
+}
+
+.project:hover {
+    cursor: pointer;
+}
+

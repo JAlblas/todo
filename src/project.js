@@ -1,29 +1,29 @@
-import { DOMManager } from './dom';
+import { RenderTodos } from './renderTodos';
+import { Todo, TodoManager } from './todo';
 
 // Factory
-const createProject = ( title, id ) => {
-  return { title, id };
+const createProject = ( title, id, todos ) => {
+  return { title, id, todos };
 };
 
 // Module pattern
 const ProjectManager = (() => {
-  let selectedProject = "";
+
+  let projects = [];
+  let project1 = createProject("Project 1", 0);
+  let project2 = createProject("Project 2", 1);
+
+  projects = [project1, project2];
 
   const selectProject = (e) => {
-    console.log("Selected project!"); 
-    selectedProject = e.target.id;
+    let selectedProjectId = parseInt(e.target.id);
+    
+    let filteredTodos = TodoManager.todos.filter(todo => todo.projectId === selectedProjectId);
 
-    DOMManager.showTodos();
+    RenderTodos.render(filteredTodos);
   }
 
-  const loadTodos = () => {
-
-  }
-
-  const printLine = () => {
-    console.log(("HAHAHA"));
-  }
-  return { selectProject, printLine };
+  return { selectProject, projects };
 })()
 
 export { createProject, ProjectManager };
