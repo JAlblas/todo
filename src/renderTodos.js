@@ -6,7 +6,7 @@ import { TodoManager } from "./todo";
 const RenderTodos = (() => {
     let containerDiv = document.querySelector("#container");
 
-    const render = (todos) => {
+    const render = () => {
 
       containerDiv.innerHTML = "";
 
@@ -19,10 +19,8 @@ const RenderTodos = (() => {
         header.appendChild(backButton);
       }
 
-      console.log("rendering");
-      console.log(todos);
-
-      for (const todo of todos) {
+      let filteredTodos = TodoManager.getTodos().filter(todo => todo.projectId === ProjectManager.getProjectId());
+      for (const todo of filteredTodos) {
                 
         let todoDiv = document.createElement('div');
         
@@ -35,14 +33,10 @@ const RenderTodos = (() => {
         deleteButton.textContent = "X";
 
         deleteButton.addEventListener("click", (e) => {
-          TodoManager.removeTodo(e.target.parentNode.id);
-          
-          console.log(ProjectManager);
-
-          console.log("is the selected project");
-          let filteredTodos = TodoManager.todos.filter(todo => todo.projectId === ProjectManager.getProjectId());
-          RenderTodos.render(filteredTodos);
+          TodoManager.removeTodo(Number(e.target.parentNode.id));
+          RenderTodos.render();
         })
+
         todoDiv.appendChild(deleteButton);
 
         containerDiv.appendChild(todoDiv)

@@ -25,19 +25,32 @@ const TodoManager = (() => {
     todos.push(todo2);
     todos.push(todo3);
 
+    const getTodos = () => {
+        return todos;
+    }
+
+    const setTodos = (todos) => {
+        todos = todos;
+    }
+
+    const removeElementFromTodos = (index) => {
+        todos.splice(index, 1);
+    }
+
     const selectTodo = (e) => {
         console.log("SELECTING TODO");
     }
 
     const removeTodo = (idToRemove) => {
-        let index = todos.map(function(todo) {
+
+        let index = getTodos().map(function(todo) {
             return todo.todoId
         }).indexOf(idToRemove);
 
-        todos.splice(index, 1);
+        removeElementFromTodos(index);
     }
   
-    return { selectTodo, todos, removeTodo };
+    return { selectTodo, getTodos, removeTodo };
   })()
 
   

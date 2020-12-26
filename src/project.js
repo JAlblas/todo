@@ -28,12 +28,7 @@ const ProjectManager = (() => {
   const selectProject = (e) => {
     setProjectId(parseInt(e.target.id));
 
-    console.log(selectedProjectId);
-    console.log(" is now selected!");
-
-    let filteredTodos = TodoManager.todos.filter(todo => todo.projectId === getProjectId());
-
-    RenderTodos.render(filteredTodos);
+    RenderTodos.render();
   }
 
   return { selectProject, projects, setProjectId, getProjectId };
