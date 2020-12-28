@@ -3,6 +3,7 @@ import { ProjectManager } from "./project";
 import { TodoManager } from "./todo";
 
 const Storage = (() => {
+    
     const saveData = () => {
         let projects = ProjectManager.projects;
         localStorage.setItem('projects', JSON.stringify(projects));
@@ -18,6 +19,6 @@ const Storage = (() => {
     }
 
     return { saveData, loadData };
-})()
+})();
 
 export { Storage };
