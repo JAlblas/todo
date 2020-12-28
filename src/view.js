@@ -1,5 +1,6 @@
 import { ProjectManager } from "./project";
 import { TodoManager } from "./todo";
+import { Storage } from './storage';
 
 // Module pattern
 const View = (() => {
@@ -64,7 +65,6 @@ const View = (() => {
             header.appendChild(backButton);
           } else {
             let backButton = document.querySelector('.back-button');
-            console.log(backButton);
 
             if (ProjectManager.getProjectId() === null) {
                 backButton.style.display = "none";
@@ -96,8 +96,11 @@ const View = (() => {
 
         // Get the button that opens the modal
         var submitButton = document.getElementById("create-todo");
-        submitButton.addEventListener("click", () => {
-            TodoManager.addTodo("TEST");
+        submitButton.addEventListener("click", (e) => {
+            let name = document.getElementById("name").value;
+            let description = document.getElementById("description").value;
+            TodoManager.addTodo(name, description);
+            modal.style.display = "none";
         })
 
         // When the user clicks anywhere outside of the modal, close it
@@ -105,7 +108,7 @@ const View = (() => {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
-            }
+        }
     }
 
     return { renderProjects, renderTodos, createModal };
