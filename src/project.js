@@ -1,5 +1,4 @@
-import { RenderTodos } from './renderTodos';
-import { TodoManager } from './todo';
+import { View } from './view';
 
 // Factory
 const createProject = ( title, id, todos ) => {
@@ -27,8 +26,7 @@ const ProjectManager = (() => {
 
   const selectProject = (e) => {
     setProjectId(parseInt(e.target.id));
-
-    RenderTodos.render();
+    View.renderTodos();
   }
 
   return { selectProject, projects, setProjectId, getProjectId };

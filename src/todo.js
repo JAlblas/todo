@@ -1,5 +1,3 @@
-
-
 class Todo {
     constructor(title, description, dueDate, priority, notes, checklist, todoId, projectId) {
         this.title = title;
@@ -29,10 +27,6 @@ const TodoManager = (() => {
         return todos;
     }
 
-    const setTodos = (todos) => {
-        todos = todos;
-    }
-
     const removeElementFromTodos = (index) => {
         todos.splice(index, 1);
     }
@@ -49,8 +43,13 @@ const TodoManager = (() => {
 
         removeElementFromTodos(index);
     }
+
+    const addTodo = (name) => {
+        console.log("CREATING TODO!");
+        todos.push(new Todo(name, "everyone", "31/12/2021", "low", "", [], 2, 1));
+    }
   
-    return { selectTodo, getTodos, removeTodo };
+    return { selectTodo, getTodos, removeTodo, addTodo };
   })()
 
   
