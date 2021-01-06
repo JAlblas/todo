@@ -57,7 +57,6 @@ const TodoManager = (() => {
     }
   
     return { selectTodo, getTodos, setTodos, removeTodo, addTodo };
-  })()
-
+  })();
   
 export { Todo, TodoManager };

@@ -114,4 +114,4 @@ const View = (() => {
     return { renderProjects, renderTodos, createModal };
   })()
   
-  export { View };
+export default { View };
